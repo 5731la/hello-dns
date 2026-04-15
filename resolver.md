@@ -78,13 +78,14 @@ Once we have an IP address for a `powerdns.org` nameserver, we can ask it
 about `www.powerdns.org`.
 
 ## CNAMEs
-CNAMEs complicate this process slightly but not fundamentally. A CNAME
-redirects our query to a new name. This means that once a CNAME is hit, the
-initial algorithm terminates, and gets restarted for the new CNAME target.
+CNAME records complicate this process slightly but not fundamentally. A 
+CNAME record redirects our query to a new name. This means that once a 
+CNAME record is hit, the initial algorithm terminates, and gets restarted 
+for the new Canonical Name (CNAME) target.
 
-Frequently, a CNAME points to a name that is also within the same zone, for
-example `www.powerdns.org. IN CNAME powerdns.org`. Authoritative servers
-then typically also include the requested type for `powerdns.org` in the
+Frequently, a CNAME record points to a canonical name that is also within the 
+same zone, for example `www.powerdns.org. IN CNAME powerdns.org`. Authoritative 
+servers then typically also include the requested type for `powerdns.org` in the
 same DNS response. As an optimization, a resolver can use this CNAME record
 and terminate the algorithm.
 
